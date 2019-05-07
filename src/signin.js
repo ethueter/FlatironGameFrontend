@@ -1,14 +1,16 @@
-document.addEventListener('DOMContentLoaded', {
+document.addEventListener('DOMContentLoaded', 
 
 
-    getUserInfo()
+    getUserInfo(),
+
     document.querySelector('#sign-in').addEventListener('submit', handleGameStart)
 
-})
+)
 
 
 function getUserInfo() {
-    let main = document.querySelector('#center-board')
+    let main = document.querySelector('#board')
+    let center = document.createElement('div')
 
     let signInForm = document.createElement('form')
     signInForm.id = "sign-in"
@@ -68,7 +70,8 @@ function getUserInfo() {
     signInForm.appendChild(nameLabel2)
     signInForm.appendChild(username2)
     signInForm.appendChild(icon2)
-    main.appendChild(signInForm)
+    center.appendChild(signInForm)
+    main.appendChild(center)
 
 }
 
