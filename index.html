@@ -7,18 +7,26 @@
     </head>
         <body>
             <div class="ui grid">
-                <div class="eight wide column">
-                    <canvas id="board" width="640" height="640">
-                    </canvas>
-                </div>
-                <div class="four wide column">
-                    <div classname="resume">
-                            <h1>[Player Name] Resume</h1>
-                            <ul id="skill-list">
-                        
-                            </ul>
+                <div class="row">
+                    <div class="four wide column">
+                        <h1 id="player1-score">Player 1</h1>
+                    </div>
+                    <div>
+                        <h1 id="player2-score">Player 2</h1>
                     </div>
                 </div>
+                    <div class="eight wide column">
+                            <canvas id="board" width="640" height="640">
+                            </canvas>
+                    </div>
+                    <div class="four wide column">
+                        <div classname="resume">
+                                <h1>[Player Name] Resume</h1>
+                                <ul id="skill-list">
+                            
+                                </ul>
+                        </div>
+                    </div>
             </div>
         </body>
         <script src="src/index.js"></script>
