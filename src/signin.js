@@ -78,12 +78,12 @@ function getUserInfo() {
 function handleGameStart(e) {
 
     let user1 = {
-        name: e.target.name
+        name: e.target.name,
         icon: e.target.icon-select
     }
 
     let user2 = {
-        name: e.target.name2
+        name: e.target.name2,
         icon: e.target.icon-select2
     }
 
@@ -103,3 +103,8 @@ function handleGameStart(e) {
 function gamePlay(playerData) {
     console.log(playerData)
 }
+
+
+
+
+
