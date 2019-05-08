@@ -12,10 +12,10 @@ function getQuestions() {
 }
 
 function setupQuestions(questData) {
-    mod1 = questData.filter(question => question.mod == mod1);
-    mod2 = questData.filter(question => question.mod == mod2);
-    mod3 = questData.filter(question => question.mod == mod3);
-    mod4 = questData.filter(question => question.mod == mod4)
+    mod1 = questData.filter(question => question.skill_id == 1);
+    mod2 = questData.filter(question => question.skill_id == 2);
+    mod3 = questData.filter(question => question.skill_id == 3);
+    mod4 = questData.filter(question => question.skill_id == 4)
 }
 
 function getSkills() {
