@@ -10,9 +10,9 @@ function setUpGame() {
     console.log('player1', player1)
     console.log('player2', player2)
 
-     player1.position = positions.block0
-     player2.position = player2Postion.block0
-     currentPlayer = player1
+    player1.position = player1Positions.block0
+    player2.position = player2Positions.block0
+    currentPlayer = player1
     getQuestions()
     gamePlay(currentPlayer)
 }
@@ -70,7 +70,14 @@ function gamePlay(currentPlayer) {
 
 }
 
-function askQuestion(mod) {
+function checkMod () {
+    accuSkills = current_player.skills
+    let maxSkill = Math.max(...accuSkills)
+    return `mod${maxSkill}`
+}
+
+function askQuestion() {
+    let mod = checkMod()
     let questionCard = document.querySelector('#center-card')
     let question = {}
     let questionSpace = document.querySelector('#question-content')
@@ -80,11 +87,22 @@ function askQuestion(mod) {
         questionSpace.innerText = question.content,
         answerSpace.innerHTML = `
             <option value=${question.answers[0].key}>A. ${question.answers[0]}</option>
-            <option value=${question.answers[1].key}>A. ${question.answers[1]}</option>
-            <option value=${question.answers[2].key}>A. ${question.answers[2]}</option>
+            <option value=${question.answers[1].key}>B. ${question.answers[1]}</option>
+            <option value=${question.answers[2].key}>C. ${question.answers[2]}</option>
         `,
         answerSpace.addEventListener('click', handleAnswer)
         
     }
+}
 
+function checkAnswer () {
+    //checks the answer to see if it is correct or not
+    //will show alert message and notify the player if it is correct or not
+    //if condition to determine if the answer chosen is correct or not by point value(10 or 0)
+    //if correct, update points then call move function
+    //else, it will just call move immediately
+}
+
+function move () {
+    //
 }

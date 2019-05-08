@@ -1,4 +1,4 @@
-let positions = {
+let player1Positions = {
     block0: {
         x:100,
         y:590
@@ -129,7 +129,7 @@ let positions = {
 /// player 2 at bottom ////////////////////////////////////
 
 
-let player2Postion = {
+let player2Postions = {
     block0: {
         x:140,
         y:590
