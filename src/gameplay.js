@@ -4,6 +4,18 @@ let mod1 = []
 let mod2 = []
 let mod3 = []
 let mod4 = []
+let currentPlayer = {}
+
+function setUpGame() {
+    console.log('player1', player1)
+    console.log('player2', player2)
+
+     player1.position = positions.block0
+     player2.position = player2Postion.block0
+     currentPlayer = player1
+    getQuestions()
+    gamePlay(currentPlayer)
+}
 
 function getQuestions() {
     fetch('http://localhost:3000/questions')
@@ -25,35 +37,36 @@ function getSkills() {
 }
 
 function gamePlay(currentPlayer) {
-    let position = currentPlayer.position
-    switch (position) {
-        case position < 4 : askQuestion(mod1);
-        break;
-        case position = 4 : chanceCard();
-        break;
-        case position = 5 : codeChanllenge(mod1);
-        break;
-        case position > 5 && position < 9 : askQuestion(mod2);
-        break;
-        case position = 9 : chanceCard();
-        break;
-        case position = 10 : codeChallenge(mod2);
-        break;
-        case position > 10 && position < 14 : askQuestion(mod3);
-        break;
-        case position = 14 : chanceCard();
-        break;
-        case position = 15 : codeChallenge(mod3);
-        break;
-        case position > 15 && position < 18 : askQuestion(mod4);
-        break;
-        case position = 18 : chanceCard();
-        break;
-        case position = 19 : codeChallenge(mod4);
-        break;
-        default: document.write('Something is wrong!');
+    console.log('currentPlayer', currentPlayer)
+    // let currentPosition = currentPlayer.position
+    // switch (currentPosition) {
+    //     case currentPosition < 4 : askQuestion(mod1);
+    //     break;
+    //     case currentPosition = 4 : chanceCard();
+    //     break;
+    //     case currentPosition = 5 : codeChanllenge(mod1);
+    //     break;
+    //     case currentPosition > 5 && currentPosition < 9 : askQuestion(mod2);
+    //     break;
+    //     case currentPosition = 9 : chanceCard();
+    //     break;
+    //     case currentPosition = 10 : codeChallenge(mod2);
+    //     break;
+    //     case currentPosition > 10 && currentPosition < 14 : askQuestion(mod3);
+    //     break;
+    //     case currentPosition = 14 : chanceCard();
+    //     break;
+    //     case currentPosition = 15 : codeChallenge(mod3);
+    //     break;
+    //     case currentPosition > 15 && currentPosition < 18 : askQuestion(mod4);
+    //     break;
+    //     case currentPosition = 18 : chanceCard();
+    //     break;
+    //     case currentPosition = 19 : codeChallenge(mod4);
+    //     break;
+    //     default: document.write('Something is wrong!');
 
-    }
+    // }
 
 }
 
