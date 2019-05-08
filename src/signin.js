@@ -131,7 +131,7 @@ function handleGameStart(e) {
         .then(res => res.json())
         .then(player2Data => {
             setPlayer2(player2Data)
-            setUpGame()
+            gameRules()
         })
 
     e.target.reset()
@@ -150,6 +150,20 @@ function setPlayer2(player2Data) {
     
     let p2Score = document.querySelector('#player2-score')
     p2Score.innerText = player2.name + " " + player2.score
+}
+
+function gameRules() {
+    let explanation = document.querySelector('#action-section')
+    explanation.innerHTML = `
+        <h2>How to Play</h2>
+        <p>Correctly answer questions on your turn to earn points and move forward.</p>
+        <p>If you correctly answer the Code Challenges you will earn skills for your resume.</p>`
+
+    let gameStart = document.createElement('button')
+    gameStart.innerText = "Bring It On!"
+    gameStart.addEventListener('click', setUpGame)
+    explanation.appendChild(gameStart)
+
 }
 
 

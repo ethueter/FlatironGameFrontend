@@ -18,7 +18,7 @@ function setUpGame() {
 }
 
 function getQuestions() {
-    fetch('http://localhost:3000/questions')
+    fetch('http://localhost:3000/api/v1/questions')
     .then(res => res.json())
     .then(questData => setupQuestions(questData))
 }
