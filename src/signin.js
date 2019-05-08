@@ -1,3 +1,7 @@
+let player1 = {}
+let player2 = {}
+
+
 document.addEventListener('DOMContentLoaded', 
 
 
@@ -9,7 +13,7 @@ document.addEventListener('DOMContentLoaded',
 
 
 function getUserInfo() {
-    let main = document.querySelector('body')
+    let main = document.querySelector('#action-section')
     let center = document.createElement('div')
 
     let signInForm = document.createElement('form')
@@ -107,7 +111,6 @@ function handleGameStart(e) {
         skill_id:0
     } 
 
-    // console.log('form-test', user1, user2)
     fetch('http://localhost:3000/api/v1/users', {
         method: 'POST',
         headers: {
@@ -116,13 +119,37 @@ function handleGameStart(e) {
         body: JSON.stringify(user1)
     })
     .then(res => res.json())
-    .then(playerData => console.log(playerData))
+    .then(player1Data => setPlayer1(player1Data))
 
-    // gamePlay(playerData)
+    fetch('http://localhost:3000/api/v1/users', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user2)
+    })
+        .then(res => res.json())
+        .then(player2Data => {
+            setPlayer2(player2Data)
+            setUpGame()
+        })
+
+    e.target.reset()
+    
 }
 
-function gamePlay(playerData) {
-    console.log(playerData)
+function setPlayer1(player1Data) {
+    player1 = player1Data
+    console.log("player 1 in set player", player1)
+    let p1Score = document.querySelector('#player1-score')
+    p1Score.innerText = player1.name + " " + player1.score
+}
+
+function setPlayer2(player2Data) {
+    player2 = player2Data
+    
+    let p2Score = document.querySelector('#player2-score')
+    p2Score.innerText = player2.name + " " + player2.score
 }
 
 
