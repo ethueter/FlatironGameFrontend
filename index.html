@@ -1,7 +1,9 @@
+
 <!DOCTYPE html>
 <html>
-<head>
-        <style>
+
+    <head>
+       <style>
             div { position:relative } 
              overlay    { position:absolute; top:20px; left:30px; }
              canvas-wrap { position:relative; width:800px; height:600px }
@@ -18,33 +20,40 @@
 }
    
                 </style>
-                
+      
+      
+        <title> Flatiron Game</title>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    </head>
+        <body>
+            <div class="ui grid">
+                <div class="row">
+                    <div class="four wide column">
+                        <h1 id="player1-score">Player 1</h1>
+                    </div>
+                    <div>
+                        <h1 id="player2-score">Player 2</h1>
+                    </div>
+                </div>
+                    <div class="eight wide column">
+                             <canvas id="board" width="650" height="640"style="position: absolute; top:0; left:0"></canvas>
+                                 <div id="overlay" class = "hsonuc"></div>
+                                  <p>  </p>
+                                  </div>     
 
-
-<title> Flatiron game</title>
-
-
-</head>
-</html>
-<body>
-    
-    <canvas id="board" width="650" height="640"style="position: absolute; top:0; left:0"></canvas>
-       <div id="overlay" class = "hsonuc"></div>
-        <p>  </p>
-      </div>     
-
-    </canvas>
-    <div>
-            
-        </div>
-
-
-    <p></p>
-       
-</body>
-
-
- 
-<script src="src/index.js"></script>
+                             </canvas>
+                    </div>
+                    <div class="four wide column">
+                        <div classname="resume">
+                                <h1>[Player Name] Resume</h1>
+                                <ul id="skill-list">
+                            
+                                </ul>
+                        </div>
+                    </div>
+            </div>
+        </body>
+        <script src="src/index.js"></script>
+        <script src="src/signin.js"></script>
 
 </html>
