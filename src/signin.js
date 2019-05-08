@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded',
 
 
 function getUserInfo() {
-    let main = document.querySelector('#board')
+    let main = document.querySelector('#overlay')
     let center = document.createElement('div')
 
     let signInForm = document.createElement('form')
