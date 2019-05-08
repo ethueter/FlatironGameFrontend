@@ -2,58 +2,50 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-       <style>
-            div { position:relative } 
-             overlay    { position:absolute; top:20px; left:30px; }
-             canvas-wrap { position:relative; width:800px; height:600px }
-             canvas-wrap canvas { position:absolute; top:0; left:0; z-index:0 }
-             .hsonuc {
-                position:absolute;  
-                top:200px;
-                right:50%;
-                margin-right:300px;
-                margin-bottom:200px;
-                padding:1.5em 2em;
-                
-                color:black;
-}
-   
-                </style>
-      
-      
+    <head>      
         <title> Flatiron Game</title>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     </head>
         <body>
-            <div class="ui grid">
-                <div class="row">
-                    <div class="four wide column">
+            <div class="ui centered grid">
+                <div class="four column row">
+                    <div class="five wide column">
                         <h1 id="player1-score">Player 1</h1>
                     </div>
-                    <div>
-                        <h1 id="player2-score">Player 2</h1>
+                    <div class="four wide column">
+                            <h1 id="player2-score">Player 2</h1>
                     </div>
                 </div>
-                    <div class="eight wide column">
-                             <canvas id="board" width="650" height="640"style="position: absolute; top:0; left:0"></canvas>
-                                 <div id="overlay" class = "hsonuc"></div>
-                                  <p>  </p>
-                                  </div>     
-
-                             </canvas>
+            </div>
+            <div class="ui centered grid">
+                <div class="two column row">
+                    <div class="six wide column">
+                        <canvas id="board" width="640" height="640" style="position: relative">
+                            <div id="overlay" class = "hsonuc">
+                            </div> 
+                        </canvas>    
                     </div>
                     <div class="four wide column">
-                        <div classname="resume">
-                                <h1>[Player Name] Resume</h1>
-                                <ul id="skill-list">
-                            
-                                </ul>
+                        <div class="ui raised segment">
+                            <div classname="resume">
+                                    <h1>[Player Name] Resume</h1>
+                                    <ul id="skill-list">
+                                        <li>RUBY(Placeholder)</li>
+                                        <li>RUBY(Placeholder)</li>
+                                        <li>RUBY(Placeholder)</li>
+                                        <li>RUBY(Placeholder)</li>
+                                    </ul>
+                            </div>
+                        </div>
+                            <div class="ui raised segment">
+                                <h2>Questions</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident rerum, officia doloribus ex odit, voluptatum optio eos qui voluptatem animi dolorem sint fugit sequi cumque dicta ipsam quisquam corrupti nesciunt!</p>
+                            </div>
                         </div>
                     </div>
+                </div>
             </div>
         </body>
         <script src="src/index.js"></script>
         <script src="src/signin.js"></script>
-
 </html>
