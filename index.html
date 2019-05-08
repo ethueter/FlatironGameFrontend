@@ -1,7 +1,27 @@
 
 <!DOCTYPE html>
 <html>
+
     <head>
+       <style>
+            div { position:relative } 
+             overlay    { position:absolute; top:20px; left:30px; }
+             canvas-wrap { position:relative; width:800px; height:600px }
+             canvas-wrap canvas { position:absolute; top:0; left:0; z-index:0 }
+             .hsonuc {
+                position:absolute;  
+                top:200px;
+                right:50%;
+                margin-right:300px;
+                margin-bottom:200px;
+                padding:1.5em 2em;
+                
+                color:black;
+}
+   
+                </style>
+      
+      
         <title> Flatiron Game</title>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     </head>
@@ -16,8 +36,12 @@
                     </div>
                 </div>
                     <div class="eight wide column">
-                            <canvas id="board" width="640" height="640">
-                            </canvas>
+                             <canvas id="board" width="650" height="640"style="position: absolute; top:0; left:0"></canvas>
+                                 <div id="overlay" class = "hsonuc"></div>
+                                  <p>  </p>
+                                  </div>     
+
+                             </canvas>
                     </div>
                     <div class="four wide column">
                         <div classname="resume">
@@ -31,4 +55,5 @@
         </body>
         <script src="src/index.js"></script>
         <script src="src/signin.js"></script>
+
 </html>
