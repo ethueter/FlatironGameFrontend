@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded',
 
 
 function getUserInfo() {
-    let main = document.querySelector('#overlay')
+    let main = document.querySelector('body')
     let center = document.createElement('div')
 
     let signInForm = document.createElement('form')
@@ -21,11 +21,16 @@ function getUserInfo() {
     let subheading = document.createElement('h4')
     subheading.innerText = 'Add Skills To Your Resume'
 
-    let nameLabel = document.createElement('label')
-    nameLabel.innerText = "Enter Your Name and Choose an Icon to Get Started"
+    let nameLabelBegin = document.createElement('h4')
+    nameLabelBegin.innerText = "Enter Your Name and Choose an Icon to Get Started"
+
+    let player1Label = document.createElement('label')
+    player1Label.innerText = 'Player 1'
+    
+    let player1Break = document.createElement('br')
 
     let username = document.createElement('input')
-    username.className = "name"
+    username.id = "username"
     username.type = "text"
     username.placeholder = "Name"
 
@@ -33,17 +38,21 @@ function getUserInfo() {
     let icon = document.createElement('select')
     icon.id = 'icon-select'
     icon.innerHTML = `
-        <option value="">icon 1</option>
+        <option value="test">icon 1</option>
         <option value="">icon 2</option>
         <option value="">icon 3</option>
         <option value="">icon 4</option>
         <option value="">icon 5</option>
         `
+    let formBreak = document.createElement('br')
+
     let nameLabel2 = document.createElement('label')
-    nameLabel.innerText = "Player 2 Info:"
+    nameLabel2.innerText = "Player 2"
+
+    let player2Break = document.createElement('br')
 
     let username2 = document.createElement('input')
-    username2.className = "name2"
+    username2.id = "username2"
     username2.type = "text"
     username2.placeholder = "Player 2"
 
@@ -60,16 +69,21 @@ function getUserInfo() {
 
 
     let getStarted = document.createElement('button')
-    getStarted.value = "Play!"
+    getStarted.innerText = "Play!"
 
     signInForm.appendChild(heading)
     signInForm.appendChild(subheading)
-    signInForm.appendChild(nameLabel)
+    signInForm.appendChild(nameLabelBegin)
+    signInForm.appendChild(player1Label)
+    signInForm.appendChild(player1Break)
     signInForm.appendChild(username)
     signInForm.appendChild(icon)
+    signInForm.appendChild(formBreak)
     signInForm.appendChild(nameLabel2)
+    signInForm.appendChild(player2Break)
     signInForm.appendChild(username2)
     signInForm.appendChild(icon2)
+    signInForm.appendChild(getStarted)
     center.appendChild(signInForm)
     main.appendChild(center)
 
@@ -77,27 +91,34 @@ function getUserInfo() {
 
 function handleGameStart(e) {
 
+    e.preventDefault()
+    
     let user1 = {
-        name: e.target.name,
-        icon: e.target.icon-select
+        name: e.target[0].value,
+        score: 0,
+        icon: e.target[1].value,
+        skill_id: 0
     }
 
     let user2 = {
-        name: e.target.name2,
-        icon: e.target.icon-select2
-    }
+        name: e.target[2].value,
+        score: 0,
+        icon: e.target[3].value,
+        skill_id:0
+    } 
 
-    fetch('http://localhost:3000/users', {
+    // console.log('form-test', user1, user2)
+    fetch('http://localhost:3000/api/v1/users', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(user1, user2)
+        body: JSON.stringify(user1)
     })
     .then(res => res.json())
     .then(playerData => console.log(playerData))
 
-    gamePlay(playerData)
+    // gamePlay(playerData)
 }
 
 function gamePlay(playerData) {
