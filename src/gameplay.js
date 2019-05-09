@@ -108,4 +108,6 @@ function checkAnswer () {
     //else, it will just call move immediately
 }
 
-function codeChallenge(currentPlayer) 
+function codeChallenge(currentPlayer) {
+    
+}
