@@ -19,7 +19,19 @@ function setUpGame() {
     getQuestions()
     draw(player1)
     draw(player2)
-    gamePlay(currentPlayer)
+    player1Start()
+}
+
+function player1Start() {
+    let main = document.querySelector('#action-section')
+    main.innerHTML = ''
+    let nextScreen = document.createElement('h3')
+    nextScreen.innerText = `${currentPlayer.name} Ready?`
+    let nxtBtn = document.createElement('button')
+    nxtBtn.innerText = "Hit Me!"
+    nxtBtn.addEventListener('click', ()=> gamePlay(currentPlayer))
+    main.appendChild(nextScreen)
+    main.appendChild(nxtBtn)
 }
 
 function getQuestions() {
@@ -79,6 +91,7 @@ function gamePlay(currentPlayer) {
 
 
 function askQuestion(mod) {
+    
     let explanation = document.querySelector('#action-section')
     explanation.remove()
 
@@ -92,7 +105,7 @@ function askQuestion(mod) {
     questionCard.appendChild(answerSpace)
 
     let question = mod[Math.floor(Math.random() * mod.length)]
-    
+    console.log('questions', mod)
     questionSpace.innerText = question.content
     let answers = question.answers
     for (let key in answers) {

@@ -4,11 +4,12 @@ let player2 = {}
 
 document.addEventListener('DOMContentLoaded', 
 
-
+    
     getUserInfo(),
+    
 
     document.querySelector('#sign-in').addEventListener('submit', handleGameStart)
-
+   
 )
 
 
@@ -141,7 +142,6 @@ function handleGameStart(e) {
 
 function setPlayer1(player1Data) {
     player1 = player1Data
-    console.log("player 1 in set player", player1)
     let p1Score = document.querySelector('#player1-score')
     p1Score.innerText = player1.name + " " + player1.score
 }
