@@ -60,27 +60,27 @@ function gamePlay(currentPlayer) {
     switch (true) {
         case currentPosition < 14: askQuestion(mod1);
         break;
-        case currentPosition = 14 : chanceCard();
+        case currentPosition == 14 : chanceCard();
         break;
-        case currentPosition = 15 : codeChanllenge();
+        case currentPosition == 15 : codeChanllenge();
         break;
         case currentPosition > 15 && currentPosition < 19 : askQuestion(mod2);
         break;
-        case currentPosition = 19 : chanceCard();
+        case currentPosition == 19 : chanceCard();
         break;
-        case currentPosition = 20 : codeChallenge(mod2);
+        case currentPosition == 20 : codeChallenge(mod2);
         break;
         case currentPosition > 20 && currentPosition < 24 : askQuestion(mod3);
         break;
-        case currentPosition = 24 : chanceCard();
+        case currentPosition == 24 : chanceCard();
         break;
-        case currentPosition = 25 : codeChallenge(mod3);
+        case currentPosition == 25 : codeChallenge(mod3);
         break;
         case currentPosition > 25 && currentPosition < 28 : askQuestion(mod4);
         break;
-        case currentPosition = 28 : chanceCard();
+        case currentPosition == 28 : chanceCard();
         break;
-        case currentPosition = 29 : codeChallenge(mod4);
+        case currentPosition == 29 : codeChallenge(mod4);
         break;
         default: document.write('Something is wrong!');
 
@@ -189,19 +189,19 @@ function handleCC() {
     switch(true) {
         case currentPlayer.score < 60: codeChallenge(mod1);
         break;
-        case currentPlayer.score = 60: levelup(ruby);
+        case currentPlayer.score == 60: levelup(ruby);
         break;
         case currentPlayer.score > 60 && currentPlayer.score < 120: codeChallenge(mod2);
         break;
-        case currentPlayer.score = 120: levelup(rails);
+        case currentPlayer.score == 120: levelup(rails);
         break;
         case currentPlayer.score > 120 && currentPlayer.score < 180: codeChallenge(mod3);
         break;
-        case currentPlayer.score = 180: levelup(javascript);
+        case currentPlayer.score == 180: levelup(javascript);
         break;
         case currentPlayer.score > 180 && currentPlayer.score < 240: codeChallenge(mod4);
         break;
-        case currentPlayer.score = 240: winner();
+        case currentPlayer.score == 240: winner();
         default: document.write("NO GOOD")
     }
 }
@@ -221,9 +221,48 @@ function levelup(language) {
 }
 
 function chanceCard() {
-    let chanceNum = Math.floor(Math.random() * 6)
+    let chanceNum = Math.floor(Math.random() * 7)
     
+    switch(true) {
+        case chanceNum == 1: ()=> {
+            currentPlayer.scroe = currentPlayer.score + 10
+            alert("You lead a study session with your mod and gain 10 pts!")
+            moveForward(currentPlayer)
+        };
+        break;
+        case chanceNum == 2: ()=> {
+            currentPlayer.score = currentPlayer.score - 10
+            alert("Oh No! You are stuck in a For loop with no exit! You lose 10pts and a turn")
+            nextUp()
+        };
+        break;
+        case chanceNum == 3: ()=> {
+            currentPlayer.score = currentPlayer.score + 10
+            alert("Finish All Practice Challenges. You earn an extra 10pts.")
+            moveForward(currentPlayer)
+        };
+        break;
+        case chanceNum == 4: ()=> {
+            currentPlayer.score = currentPlayer.score + 10
+            alert("Refactor your code and earn 10pts")
+            moveForward(currentPlayer)
+        };
+        break;
+        case chanceNum == 5: ()=> {
+            currentPlayer.score = currentPlayer.score + 5
+            alert("Attend a meet up and make some connections. + 5pts")
+            moveForward(currentPlayer)
+        };
+        break;
+        case chanceNum == 6: ()=> {
+            currentPlayer.score = currentPlayer.score + 5
+            alert("Write a kick ass blog. + 5 pts")
+            moveForward(currentPlayer)
+        };
+        break;
+        default: document.write("Damn it, not again.")
 
+    }
 
 
 }
