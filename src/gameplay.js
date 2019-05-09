@@ -20,7 +20,7 @@ function setUpGame() {
 function getQuestions() {
     fetch('http://localhost:3000/api/v1/questions')
     .then(res => res.json())
-    .then(questData => setupQuestions(questData))
+    .then(questData => console.log('questions', questData))
 }
 
 function setupQuestions(questData) {
@@ -31,7 +31,7 @@ function setupQuestions(questData) {
 }
 
 function getSkills() {
-    fetch('http://localhost:3000/skills')
+    fetch('http://localhost:3000/api/v1/skills')
     .then(res => res.json())
     .then(skills => console.log(skills))
 }
