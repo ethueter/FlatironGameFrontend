@@ -146,8 +146,7 @@ function moveForward(currentPlayer)  {
     if (currentPlayer == player1) {
         player1.positionid = player1.positionid + 1
         player1.position = player1Positions[`block${player1.positionid}`]
-
-        
+       
     } else {
         player2.positionid = player2.positionid + 1
         player2.positon = player2Positions[`block${player2.positionid}`]
@@ -164,4 +163,11 @@ function moveForward(currentPlayer)  {
     gamePlay(currentPlayer)
 }       
 
+function clear(){
+        let ctx = document.getElementById('board').getContext('2d');
+        ctx.fillStyle = 'WHITE'
+        ctx.fillRect(590, 510, 25, 25);
+        
+
+       }
 
