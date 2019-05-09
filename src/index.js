@@ -51,30 +51,32 @@ function createBoard() {
 createBoard()
 
     
-      function myMove() {
-        let elem = document.createElement('img')
-          elem.src = `src/smileyface.jpg`
-        var pos = 100;
-        var id = setInterval(frame, 10);
-        function frame() {
-          if (pos == 350) {
-            clearInterval(id);
-          } else {
-            pos++; 
-            elem.style.top = pos + 'px'; 
-            elem.style.left = pos + 'px'; 
-          }
-        }
-      }
+    //   function myMove() {
+    //     let elem = document.createElement('img')
+    //       elem.src = `src/smileyface.jpg`
+    //     var pos = 100;
+    //     var id = setInterval(frame, 10);
+    //     function frame() {
+    //       if (pos == 350) {
+    //         clearInterval(id);
+    //       } else {
+    //         pos++; 
+    //         elem.style.top = pos + 'px'; 
+    //         elem.style.left = pos + 'px'; 
+    //       }
+    //     }
+    //   }
          
     
       function draw() {
+
         let ctx = document.getElementById('board').getContext('2d');
-        
         let img = new Image();
-        img.src = 'src/android.png';
+        img.id = "player1"
+        img.src = currentPlayer.icon;
         img.onload = function() {
-            ctx.drawImage(img, 100, 590, 25, 25); // home position
+            // ctx.drawImage(img, 100, 590, 25, 25); // home position
+            ctx.drawImage(img,currentPlayer.position.x, currentPlayer.position.y, 25, 25 )
         //    ctx.drawImage(img, 220,590, 25, 25); // second block at bottom
         //   ctx.drawImage(img, 325,590, 25, 25); 
         //   ctx.drawImage(img, 435,590, 25, 25);
@@ -140,19 +142,26 @@ createBoard()
 
 
 
-          
+function moveForward(currentPlayer)  {
+    if (currentPlayer == player1) {
+        player1.positionid = player1.positionid + 1
+        player1.position = player1Positions[`block${player1.positionid}`]
 
-       function print(e){
-        let x = document.getElementById("test")
-        x.innerText = "this is question"
         
-       }
+    } else {
+        player2.positionid = player2.positionid + 1
+        player2.positon = player2Positions[`block${player2.positionid}`]
+    }
 
-       
+    draw(currentPlayer)
 
-
-
-//img = new Image();
-//img.src = "src/smileyface.ico"
+    if (currentPlayer == player1) {
+        currentPlayer = player2
+    } else {
+        currentPlayer = player1
+    }
+    
+    gamePlay(currentPlayer)
+}       
 
 
