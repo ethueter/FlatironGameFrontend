@@ -60,27 +60,27 @@ function gamePlay(currentPlayer) {
     switch (true) {
         case currentPosition < 14: askQuestion(mod1);
         break;
-        case currentPosition == 14 : chanceCard();
+        case currentPosition == 14: chanceCard();
         break;
-        case currentPosition == 15 : codeChanllenge();
+        case currentPosition == 15: codeChallenge(mod1);
         break;
-        case currentPosition > 15 && currentPosition < 19 : askQuestion(mod2);
+        case currentPosition > 15 && currentPosition < 19: askQuestion(mod2);
         break;
-        case currentPosition == 19 : chanceCard();
+        case currentPosition == 19: chanceCard();
         break;
-        case currentPosition == 20 : codeChallenge(mod2);
+        case currentPosition == 20: codeChallenge(mod2);
         break;
-        case currentPosition > 20 && currentPosition < 24 : askQuestion(mod3);
+        case currentPosition > 20 && currentPosition < 24: askQuestion(mod3);
         break;
-        case currentPosition == 24 : chanceCard();
+        case currentPosition == 24: chanceCard();
         break;
-        case currentPosition == 25 : codeChallenge(mod3);
+        case currentPosition == 25: codeChallenge(mod3);
         break;
-        case currentPosition > 25 && currentPosition < 28 : askQuestion(mod4);
+        case currentPosition > 25 && currentPosition < 28: askQuestion(mod4);
         break;
-        case currentPosition == 28 : chanceCard();
+        case currentPosition == 28: chanceCard();
         break;
-        case currentPosition == 29 : codeChallenge(mod4);
+        case currentPosition == 29: codeChallenge(mod4);
         break;
         default: document.write('Something is wrong!');
 
@@ -161,6 +161,7 @@ function handleAnswer (e) {
 
 
 function codeChallenge(mod) {
+    alert('Code Challenge!!!')
     let explanation = document.querySelector('#action-section')
     explanation.innerHTML = ''
     let newline = document.createElement('br')
@@ -169,7 +170,7 @@ function codeChallenge(mod) {
     questionSpace.className = "question-space"
     let answerSpace = document.createElement('form')
     answerSpace.className = "answer-space"
-    answerSpace.addEventListener('submit', handleCC)
+    answerSpace.addEventListener('click', handleCC)
     let fieldSet = document.createElement('fieldset')
     answerSpace.appendChild(fieldSet)
     let p = document.createElement('p')
@@ -245,10 +246,10 @@ function levelup(language) {
 
 function chanceCard() {
     let chanceNum = Math.floor(Math.random() * 7)
-    
+    console.log('chance-card', chanceNum)
     switch(true) {
         case chanceNum == 1: ()=> {
-            currentPlayer.scroe = currentPlayer.score + 10
+            currentPlayer.score = currentPlayer.score + 10
             alert("You lead a study session with your mod and gain 10 pts!")
             moveForward(currentPlayer)
         };
