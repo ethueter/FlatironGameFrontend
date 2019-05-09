@@ -75,32 +75,38 @@ function gamePlay(currentPlayer) {
 
 }
 
-function checkMod () {
-    accuSkills = current_player.skills
-    let maxSkill = Math.max(...accuSkills)
-    return `mod${maxSkill}`
-}
 
-function askQuestion() {
-    let mod = checkMod()
-    let questionCard = document.querySelector('#center-card')
-    let question = {}
-    let questionSpace = document.querySelector('#question-content')
-    let answerSpace = document.querySelector('#answers')
-    if (mod == mod1) {
-        question = mod1[Math.floor(Math.random() * mod1.length)],
-        questionSpace.innerText = question.content,
-        answerSpace.innerHTML = `
-            <option value=${question.answers[0].key}>A. ${question.answers[0]}</option>
-            <option value=${question.answers[1].key}>B. ${question.answers[1]}</option>
-            <option value=${question.answers[2].key}>C. ${question.answers[2]}</option>
-        `,
-        answerSpace.addEventListener('click', handleAnswer)
-        
+function askQuestion(mod) {
+    let explanation = document.querySelector('#action-section')
+    explanation.remove()
+
+    let questionCard = document.getElementById("question-box")
+    let questionSpace = document.createElement('div')
+    questionSpace.className = "question-space"
+    let answerSpace = document.createElement('div')
+    answerSpace.className = "answer-space"
+
+    questionCard.appendChild(questionSpace)
+    questionCard.appendChild(answerSpace)
+
+    let question = mod[Math.floor(Math.random() * mod.length)]
+    
+    questionSpace.innerText = question.content
+    let answers = question.answers
+    for (let key in answers) {
+        if (answers.hasOwnProperty(key)) {
+            let choice = document.createElement('li')
+            choice.innerHTML = `<option value=${answers[key]}> ${key}</option>`
+            choice.className = answers[key]
+            answerSpace.appendChild(choice)
+        }
     }
+    
+    answerSpace.addEventListener('click', handleAnswer)
+        
 }
 
-function checkAnswer () {
+function handleAnswer () {
     //checks the answer to see if it is correct or not
     //will show alert message and notify the player if it is correct or not
     //if condition to determine if the answer chosen is correct or not by point value(10 or 0)
@@ -108,4 +114,6 @@ function checkAnswer () {
     //else, it will just call move immediately
 }
 
-function codeChallenge(currentPlayer) 
+function codeChallenge(currentPlayer) {
+
+}
