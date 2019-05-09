@@ -1,18 +1,5 @@
 
 
-// let x = document.getElementById("overlay")
-// let p = document.createElement("p")
-// p.innerText = "this is test"
-// p.id = "test"
-// let btn = document.createElement("button")
-// btn.innerText = "question"
-// btn.addEventListener("click",print)
-// x.appendChild(p)
-// x.appendChild(btn)
-//canvas.addEventListener('click', draw);
- 
-//let div = document.getElementById("canvas-wrap")
-//div.innerText = "test"
 
 function createBoard() {
     
@@ -119,41 +106,7 @@ createBoard()
             }
      }
 
-          // function drawTest() {
-
-          //   let ctx = document.getElementById('board').getContext('2d');
-          //   let img = new Image();
-          //   img.id = "player1"
-          //   img.src = 'src/smileyface.jpg';
-          //   img.onload = function() {
-          //       // ctx.drawImage(img, 100, 590, 25, 25); // home position
-          //      // ctx.drawImage(img,currentPlayer.position.x, currentPlayer.position.y, 25, 25 )
-          //       ctx.drawImage(img, 220,590, 25, 25); // second block at bottom
-          //      ctx.drawImage(img, 325,590, 25, 25); 
-          //      ctx.drawImage(img, 435,590, 25, 25);
-          //      ctx.drawImage(img,550,590,25,25 )
-    
-          //      ctx.drawImage(img,550,510,25,25)
-          //     ctx.drawImage(img,550,400,25,25)
-          //      ctx.drawImage(img,550,290,25,25)
-          //      ctx.drawImage(img,550,180,25,25)
-          //     ctx.drawImage(img,550,60,25,25)
-          //      ctx.drawImage(img,440,60,25,25)
-          //      ctx.drawImage(img,330,60,25,25)
-          //     ctx.drawImage(img,210,60,25,25)
-          //      ctx.drawImage(img,100,60,25,25)
-          //      ctx.drawImage(img,25,60,25,25)
-                
-          //      ctx.drawImage(img,25,180,25,25)  
-          //      ctx.drawImage(img,25,290,25,25) 
-          //      ctx.drawImage(img,25,290,25,25)  
-          //      ctx.drawImage(img,25,400,25,25) 
-          //      ctx.drawImage(img,25,510,25,25)
-          //      ctx.drawImage(img,25,590,25,25)
-    
-          //     //ctx.drawImage()  
-          //       }
-          //     }
+          
         
 
 function moveForward(currentPlayer)  {
@@ -165,7 +118,7 @@ function moveForward(currentPlayer)  {
        
     } else {
         player2.positionid = player2.positionid + 1
-        player2.positon = player2Positions[`block${player2.positionid}`]
+        player2.position = player2Positions[`block${player2.positionid}`]
     }
 
     draw(currentPlayer)
