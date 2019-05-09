@@ -95,94 +95,29 @@ function createBoard() {
 createBoard()
 
     
-    //   function myMove() {
-    //     let elem = document.createElement('img')
-    //       elem.src = `src/smileyface.jpg`
-    //     var pos = 100;
-    //     var id = setInterval(frame, 10);
-    //     function frame() {
-    //       if (pos == 350) {
-    //         clearInterval(id);
-    //       } else {
-    //         pos++; 
-    //         elem.style.top = pos + 'px'; 
-    //         elem.style.left = pos + 'px'; 
-    //       }
-    //     }
-    //   }
+ 
          
     
-      function draw() {
-
-        let ctx = document.getElementById('board').getContext('2d');
-        let img = new Image();
-        img.id = "player1"
-        img.src = currentPlayer.icon;
-        img.onload = function() {
-            // ctx.drawImage(img, 100, 590, 25, 25); // home position
-            ctx.drawImage(img,currentPlayer.position.x, currentPlayer.position.y, 25, 25 )
-        //    ctx.drawImage(img, 220,590, 25, 25); // second block at bottom
-        //   ctx.drawImage(img, 325,590, 25, 25); 
-        //   ctx.drawImage(img, 435,590, 25, 25);
-        //   ctx.drawImage(img,550,590,25,25 )
-
-        //   ctx.drawImage(img,550,510,25,25)
-        //   ctx.drawImage(img,550,400,25,25)
-        //   ctx.drawImage(img,550,290,25,25)
-        //   ctx.drawImage(img,550,180,25,25)
-        //   ctx.drawImage(img,550,60,25,25)
-        //   ctx.drawImage(img,440,60,25,25)
-        //   ctx.drawImage(img,330,60,25,25)
-        //   ctx.drawImage(img,210,60,25,25)
-        //   ctx.drawImage(img,100,60,25,25)
-        //   ctx.drawImage(img,25,60,25,25)
-            
-        //   ctx.drawImage(img,25,180,25,25)  
-        //   ctx.drawImage(img,25,290,25,25) 
-        //   ctx.drawImage(img,25,290,25,25)  
-        //   ctx.drawImage(img,25,400,25,25) 
-        //   ctx.drawImage(img,25,510,25,25)
-        //   ctx.drawImage(img,25,590,25,25)
-
-          //ctx.drawImage()  
-            }
-          }
+    function draw() {
+    let ctx = document.getElementById('board').getContext('2d');
+    let img = new Image();
+    img.src = currentPlayer.icon;
+    img.onload = function() {
+        ctx.drawImage(img,currentPlayer.position.x, currentPlayer.position.y, 25, 25 )  
+        }
+        }
 
 
         
 
-          function draw2(){
-          let ctx = document.getElementById('board').getContext('2d');
+    function draw2(player2){
+        let ctx = document.getElementById('board').getContext('2d');
         let img = new Image();
-        img.src = 'src/android.png';
+        img.src = player2.icon;
         img.onload = function() {
-        ctx.drawImage(img, 140, 590, 25, 25); // home position
-        ctx.drawImage(img, 260,590, 25, 25); // second block at bottom
-        ctx.drawImage(img, 365,590, 25, 25); 
-        ctx.drawImage(img, 475,590, 25, 25);
-        ctx.drawImage(img,590,590,25,25 )
-
-          ctx.drawImage(img,590,510,25,25)
-          ctx.drawImage(img,590,400,25,25)
-          ctx.drawImage(img,590,290,25,25)
-          ctx.drawImage(img,590,180,25,25)
-          ctx.drawImage(img,590,60,25,25)
-          ctx.drawImage(img,480,60,25,25)
-          ctx.drawImage(img,370,60,25,25)
-          ctx.drawImage(img,250,60,25,25)
-          ctx.drawImage(img,140,60,25,25)
-          ctx.drawImage(img,65,60,25,25)
-            
-          ctx.drawImage(img,65,180,25,25)  
-          ctx.drawImage(img,65,290,25,25) 
-          ctx.drawImage(img,65,290,25,25)  
-          ctx.drawImage(img,65,400,25,25) 
-          ctx.drawImage(img,65,510,25,25)
-          ctx.drawImage(img,65,590,25,25)
-
-          //ctx.drawImage()  
+            ctx.drawImage(img, player2.position.x, player2.position.y, 25, 25)
             }
-          }
+     }
 
           // function drawTest() {
 
@@ -222,7 +157,9 @@ createBoard()
         
 
 function moveForward(currentPlayer)  {
+    clearOldPosition(currentPlayer)
     if (currentPlayer == player1) {
+        
         player1.positionid = player1.positionid + 1
         player1.position = player1Positions[`block${player1.positionid}`]
        
@@ -232,21 +169,36 @@ function moveForward(currentPlayer)  {
     }
 
     draw(currentPlayer)
-
-    if (currentPlayer == player1) {
-        currentPlayer = player2
-    } else {
-        currentPlayer = player1
-    }
+    nextUp()
     
-    gamePlay(currentPlayer)
 }       
 
-function clear(){
+function clearOldPosition(currentPlayer){
         let ctx = document.getElementById('board').getContext('2d');
         ctx.fillStyle = 'WHITE'
-        ctx.fillRect(590, 510, 25, 25);
+        ctx.fillRect(currentPlayer.position.x, currentPlayer.position.y, 25, 25);
         
-
        }
+
+function nextUp() {
+    let main = document.querySelector('#action-section')
+    main.innerHTML = ''
+    let nextScreen = document.createElement('h3')
+    nextScreen.innerText = "Next Up! Are you Ready?"
+    let nxtBtn = document.createElement('button')
+    nxtBtn.innerText = "Hit Me!"
+    nxtBtn.addEventListener('click', handleNext)
+    main.appendChild(nextScreen)
+    main.appendChild(nxtBtn)
+}
+
+function handleNext() {
+    if (currentPlayer == player1) {
+        currentPlayer = player2
+        gamePlay(currentPlayer)
+    } else {
+        currentPlayer = player1
+        gamePlay(currentPlayer)
+    }
+}
 
