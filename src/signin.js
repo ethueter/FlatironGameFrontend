@@ -42,11 +42,12 @@ function getUserInfo() {
     let icon = document.createElement('select')
     icon.id = 'icon-select'
     icon.innerHTML = `
-        <option value="test">icon 1</option>
-        <option value="">icon 2</option>
-        <option value="">icon 3</option>
-        <option value="">icon 4</option>
-        <option value="">icon 5</option>
+        
+        <option value="<i class='fab fa-amazon'></i>">Amazon</option>
+        <option value="<i class='fab fa-ebay'></i>">ebay</option>
+        <option value="<i class='fab fa-playstation'></i>">PlayStation</option>
+        <option value="<i class='fab fa-salesforce'></i>">Salesforce</option>
+        <option value="<i class='fab fa-yelp'></i>">yelp!</option>
         `
     let formBreak = document.createElement('br')
 
@@ -64,11 +65,11 @@ function getUserInfo() {
     let icon2 = document.createElement('select')
     icon2.id = 'icon-select2'
     icon2.innerHTML = `
-        <option value="">icon 1</option>
-        <option value="">icon 2</option>
-        <option value="">icon 3</option>
-        <option value="">icon 4</option>
-        <option value="">icon 5</option>
+        <option value="<i class='fab fa-android'></i>">android</option>
+        <option value="<i class='fab fa-houzz'></i>">houzz</option>
+        <option value="<i class='fab fa-dropbox'></i>">dropbox</option>
+        <option value="<i class='fab fa-redhat'></i>">redhat</option>
+        <option value="<i class='fab fa-xbox'></i>">xbox</option>
         `
 
 
