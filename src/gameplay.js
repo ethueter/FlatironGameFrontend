@@ -98,30 +98,56 @@ function askQuestion(mod) {
     let questionCard = document.getElementById("question-box")
     let questionSpace = document.createElement('div')
     questionSpace.className = "question-space"
-    let answerSpace = document.createElement('div')
+    let answerSpace = document.createElement('form')
     answerSpace.className = "answer-space"
+    answerSpace.addEventListener('submit', handleAnswer)
+    let fieldSet = document.createElement('fieldset')
+    answerSpace.appendChild(fieldSet)
+    let p = document.createElement('p')
+    p.className = "answers"
+    let p2 = document.createElement('p')
+    p2.className = "answer-button"
+
 
     questionCard.appendChild(questionSpace)
     questionCard.appendChild(answerSpace)
 
     let question = mod[Math.floor(Math.random() * mod.length)]
     console.log('questions', mod)
-    questionSpace.innerText = question.content
+    questionSpace.innerText = `Question: ${question.content}`
     let answers = question.answers
     for (let key in answers) {
         if (answers.hasOwnProperty(key)) {
-            let choice = document.createElement('li')
-            choice.innerHTML = `<option value=${answers[key]}> ${key}</option>`
-            choice.className = answers[key]
-            answerSpace.appendChild(choice)
+            let label = document.createElement('label')
+            let choice = document.createElement('input')
+            let newline = document.createElement('br')
+            choice.type = "radio"
+            choice.value = answers[key]
+            choice.name = "answer-choice"
+            label.innerText = key
+            choice.dataset.key = key
+
+            label.appendChild(choice)
+            p.appendChild(newline)
+            p.appendChild(label)
+            fieldSet.appendChild(p)
         }
     }
-    
-    answerSpace.addEventListener('click', handleAnswer)
-        
+    let submit = document.createElement('button')
+    submit.innerText = "Submit"
+    p2.appendChild(submit)
+    fieldSet.appendChild(p2)
 }
 
-function handleAnswer () {
+function handleAnswer (e) {
+    e.preventDefault()
+    let value = document.querySelector('input[name="answer-choice"]:checked').value
+    let answer = document.querySelector('input[name="answer-choice"]:checked').dataset.key
+    if (value = 10) {
+        moveForward(currentPlayer)
+      }
+    console.log(value)
+
     //checks the answer to see if it is correct or not
     //will show alert message and notify the player if it is correct or not
     //if condition to determine if the answer chosen is correct or not by point value(10 or 0)
