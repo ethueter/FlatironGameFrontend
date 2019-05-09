@@ -18,7 +18,7 @@ function setUpGame() {
     console.log('player2', player2)
     getQuestions()
     draw(player1)
-    draw(player2)
+    draw2(player2)
     player1Start()
 }
 
@@ -156,6 +156,74 @@ function handleAnswer (e) {
 }
 
 
-function codeChallenge() {
-    console.log('code challenge', mod1)
+function codeChallenge(mod) {
+    let explanation = document.querySelector('#action-section')
+    explanation.remove()
+
+    let questionCard = document.getElementById("question-box")
+    let questionSpace = document.createElement('div')
+    questionSpace.className = "question-space"
+    let answerSpace = document.createElement('div')
+    answerSpace.className = "answer-space"
+
+    questionCard.appendChild(questionSpace)
+    questionCard.appendChild(answerSpace)
+
+    let question = mod[Math.floor(Math.random() * mod.length)]
+    console.log('questions', mod)
+    questionSpace.innerText = question.content
+    let answers = question.answers
+    for (let key in answers) {
+        if (answers.hasOwnProperty(key)) {
+            let choice = document.createElement('li')
+            choice.innerHTML = `<option value=${answers[key]}> ${key}</option>`
+            choice.className = answers[key]
+            answerSpace.appendChild(choice)
+        }
+    }
+
+    answerSpace.addEventListener('click', handleCC)
+}
+
+function handleCC() {
+    switch(true) {
+        case currentPlayer.score < 60: codeChallenge(mod1);
+        break;
+        case currentPlayer.score = 60: levelup(ruby);
+        break;
+        case currentPlayer.score > 60 && currentPlayer.score < 120: codeChallenge(mod2);
+        break;
+        case currentPlayer.score = 120: levelup(rails);
+        break;
+        case currentPlayer.score > 120 && currentPlayer.score < 180: codeChallenge(mod3);
+        break;
+        case currentPlayer.score = 180: levelup(javascript);
+        break;
+        case currentPlayer.score > 180 && currentPlayer.score < 240: codeChallenge(mod4);
+        break;
+        case currentPlayer.score = 240: winner();
+        default: document.write("NO GOOD")
+    }
+}
+
+function winner() {
+    document.write("Kick ASS!!!! Now go get a job!!")
+}
+
+function levelup(language) {
+    console.log("current player", currentPlayer.score)
+    let resume = document.querySelector('#player-resume')
+    resume.innerText `${currentPlayer.name}'s Resume`
+    let skills = document.querySelector('#skill-list')
+    let newSkill = document.createElement('li')
+    newSkill.innerText = `${language}`
+    skills.appendChild(newSkill)
+}
+
+function chanceCard() {
+    let chanceNum = Math.floor(Math.random() * 6)
+    
+
+
+
 }
