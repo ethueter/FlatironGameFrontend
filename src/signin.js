@@ -143,14 +143,14 @@ function handleGameStart(e) {
 function setPlayer1(player1Data) {
     player1 = player1Data
     let p1Score = document.querySelector('#player1-score')
-    p1Score.innerText = player1.name + " " + player1.score
+    p1Score.innerText = player1.name + ": " + player1.score
 }
 
 function setPlayer2(player2Data) {
     player2 = player2Data
     
     let p2Score = document.querySelector('#player2-score')
-    p2Score.innerText = player2.name + " " + player2.score
+    p2Score.innerText = player2.name + ": " + player2.score
 }
 
 function gameRules() {
