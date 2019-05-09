@@ -108,12 +108,10 @@ function askQuestion(mod) {
     let p2 = document.createElement('p')
     p2.className = "answer-button"
 
-
     questionCard.appendChild(questionSpace)
     questionCard.appendChild(answerSpace)
 
     let question = mod[Math.floor(Math.random() * mod.length)]
-    console.log('questions', mod)
     questionSpace.innerText = `Question: ${question.content}`
     let answers = question.answers
     for (let key in answers) {
@@ -248,38 +246,44 @@ function chanceCard() {
     let chanceNum = Math.floor(Math.random() * 7)
     console.log('chance-card', chanceNum)
     switch(true) {
-        case chanceNum == 1: ()=> {
+        case chanceNum == 1: {
             currentPlayer.score = currentPlayer.score + 10
+            displayScore()
             alert("You lead a study session with your mod and gain 10 pts!")
             moveForward(currentPlayer)
         };
         break;
-        case chanceNum == 2: ()=> {
+        case chanceNum == 2: {
             currentPlayer.score = currentPlayer.score - 10
+            displayScore()
             alert("Oh No! You are stuck in a For loop with no exit! You lose 10pts and a turn")
             nextUp()
         };
         break;
-        case chanceNum == 3: ()=> {
+        case chanceNum == 3: {
             currentPlayer.score = currentPlayer.score + 10
+            displayScore()
             alert("Finish All Practice Challenges. You earn an extra 10pts.")
             moveForward(currentPlayer)
         };
         break;
-        case chanceNum == 4: ()=> {
+        case chanceNum == 4: {
             currentPlayer.score = currentPlayer.score + 10
+            displayScore()
             alert("Refactor your code and earn 10pts")
             moveForward(currentPlayer)
         };
         break;
-        case chanceNum == 5: ()=> {
+        case chanceNum == 5: {
             currentPlayer.score = currentPlayer.score + 5
+            displayScore()
             alert("Attend a meet up and make some connections. + 5pts")
             moveForward(currentPlayer)
         };
         break;
-        case chanceNum == 6: ()=> {
+        case chanceNum == 6: {
             currentPlayer.score = currentPlayer.score + 5
+            displayScore()
             alert("Write a kick ass blog. + 5 pts")
             moveForward(currentPlayer)
         };
