@@ -7,12 +7,13 @@ let mod4 = []
 let currentPlayer = {}
 
 function setUpGame() {
-    console.log('player1', player1)
-    console.log('player2', player2)
+    
 
-    player1.position = player1Positions.block0
+    player1.position = player1Positions[0]
     player2.position = player2Positions.block0
     currentPlayer = player1
+    console.log('player1', player1)
+    console.log('player2', player2)
     getQuestions()
     gamePlay(currentPlayer)
 }
@@ -104,5 +105,5 @@ function checkAnswer () {
 }
 
 function move () {
-    //
+    console.log('current player position', currentPlayer.position)
 }
