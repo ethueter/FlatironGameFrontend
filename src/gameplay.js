@@ -44,36 +44,38 @@ function getSkills() {
 function gamePlay(currentPlayer) {
     console.log('gameplay current player', currentPlayer)
     let currentPosition = currentPlayer.positionid
-    switch (currentPosition) {
-        case currentPosition < 4 : askQuestion(mod1);
-        break;
-        case currentPosition = 4 : chanceCard();
-        break;
-        case currentPosition = 5 : codeChanllenge(mod1);
-        break;
-        case currentPosition > 5 && currentPosition < 9 : askQuestion(mod2);
-        break;
-        case currentPosition = 9 : chanceCard();
-        break;
-        case currentPosition = 10 : codeChallenge(mod2);
-        break;
-        case currentPosition > 10 && currentPosition < 14 : askQuestion(mod3);
+    console.log('currentPosition', currentPosition)
+    switch (true) {
+        case currentPosition < 14: askQuestion(mod1);
         break;
         case currentPosition = 14 : chanceCard();
         break;
-        case currentPosition = 15 : codeChallenge(mod3);
+        case currentPosition = 15 : codeChanllenge();
         break;
-        case currentPosition > 15 && currentPosition < 18 : askQuestion(mod4);
+        case currentPosition > 15 && currentPosition < 19 : askQuestion(mod2);
         break;
-        case currentPosition = 18 : chanceCard();
+        case currentPosition = 19 : chanceCard();
         break;
-        case currentPosition = 19 : codeChallenge(mod4);
+        case currentPosition = 20 : codeChallenge(mod2);
+        break;
+        case currentPosition > 20 && currentPosition < 24 : askQuestion(mod3);
+        break;
+        case currentPosition = 24 : chanceCard();
+        break;
+        case currentPosition = 25 : codeChallenge(mod3);
+        break;
+        case currentPosition > 25 && currentPosition < 28 : askQuestion(mod4);
+        break;
+        case currentPosition = 28 : chanceCard();
+        break;
+        case currentPosition = 29 : codeChallenge(mod4);
         break;
         default: document.write('Something is wrong!');
 
     }
 
 }
+
 
 
 function askQuestion(mod) {
@@ -114,6 +116,7 @@ function handleAnswer () {
     //else, it will just call move immediately
 }
 
-function codeChallenge(currentPlayer) {
 
+function codeChallenge() {
+    console.log('code challenge', mod1)
 }
