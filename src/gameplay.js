@@ -58,27 +58,27 @@ function gamePlay(currentPlayer) {
     let currentPosition = currentPlayer.positionid
     console.log('currentPosition', currentPosition)
     switch (true) {
-        case currentPosition < 14: askQuestion(mod1);
+        case currentPosition < 13: askQuestion(mod1);
         break;
-        case currentPosition == 14: chanceCard();
+        case currentPosition == 13: chanceCard(mod1);
         break;
-        case currentPosition == 15: codeChallenge(mod1);
+        case currentPosition == 14: codeChallenge(mod1);
         break;
-        case currentPosition > 15 && currentPosition < 19: askQuestion(mod2);
+        case currentPosition > 14 && currentPosition < 18: askQuestion(mod2);
         break;
-        case currentPosition == 19: chanceCard();
+        case currentPosition == 18: chanceCard();
         break;
-        case currentPosition == 20: codeChallenge(mod2);
+        case currentPosition == 19: codeChallenge(mod2);
         break;
-        case currentPosition > 20 && currentPosition < 24: askQuestion(mod3);
+        case currentPosition > 19 && currentPosition < 23: askQuestion(mod3);
         break;
-        case currentPosition == 24: chanceCard();
+        case currentPosition == 23: chanceCard();
         break;
-        case currentPosition == 25: codeChallenge(mod3);
+        case currentPosition == 24: codeChallenge(mod3);
         break;
-        case currentPosition > 25 && currentPosition < 28: askQuestion(mod4);
+        case currentPosition > 24 && currentPosition < 27: askQuestion(mod4);
         break;
-        case currentPosition == 28: chanceCard();
+        case currentPosition == 27: chanceCard();
         break;
         case currentPosition == 29: codeChallenge(mod4);
         break;
@@ -170,7 +170,7 @@ function codeChallenge(mod) {
     questionSpace.className = "question-space"
     let answerSpace = document.createElement('form')
     answerSpace.className = "answer-space"
-    answerSpace.addEventListener('click', handleCC)
+    answerSpace.addEventListener('submit', handleCC)
     let fieldSet = document.createElement('fieldset')
     answerSpace.appendChild(fieldSet)
     let p = document.createElement('p')
@@ -209,11 +209,19 @@ function codeChallenge(mod) {
     fieldSet.appendChild(p2)
 }
 
-function handleCC() {
+function handleCC(e) {
+    e.preventDefault()
+    let value = e.target.querySelector('input[name="answer-choice"]:checked').value
+    let answer = e.target.querySelector('input[name="answer-choice"]:checked').dataset.key
+    console.log(value)
+    if (value == 10) {
+        currentPlayer.score += 10
+    };
+    console.log("CC points",currentPlayer.score)
     switch(true) {
-        case currentPlayer.score < 60: codeChallenge(mod1);
+        case currentPlayer.score < 60: displayScore(); codeChallenge(mod1);
         break;
-        case currentPlayer.score == 60: levelup(ruby);
+        case currentPlayer.score == 60: levelup("Ruby");
         break;
         case currentPlayer.score > 60 && currentPlayer.score < 120: codeChallenge(mod2);
         break;
@@ -237,11 +245,12 @@ function winner() {
 function levelup(language) {
     console.log("current player", currentPlayer.score)
     let resume = document.querySelector('#player-resume')
-    resume.innerText `${currentPlayer.name}'s Resume`
+    resume.innerText = `${currentPlayer.name}'s Resume`
     let skills = document.querySelector('#skill-list')
     let newSkill = document.createElement('li')
     newSkill.innerText = `${language}`
     skills.appendChild(newSkill)
+    moveForward(currentPlayer)
 }
 
 function chanceCard() {
@@ -294,9 +303,9 @@ function chanceCard() {
 
 function displayScore () {
     let p1Score = document.querySelector('#player1-score')
-    p1Score.innerText = player1.name + " " + player1.score
+    p1Score.innerText = player1.name + ": " + player1.score
     
     let p2Score = document.querySelector('#player2-score')
-    p2Score.innerText = player2.name + " " + player2.score
+    p2Score.innerText = player2.name + ": " + player2.score
 
 }
