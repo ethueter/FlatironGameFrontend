@@ -43,7 +43,7 @@ function getUserInfo() {
     icon.id = 'icon-select'
     icon.innerHTML = `
         
-        <option value="test1">Amazon</option>
+        <option value="src/android.png">Amazon</option>
         <option value="test2">ebay</option>
         <option value="test3">PlayStation</option>
         <option value="test4">Salesforce</option>
