@@ -150,7 +150,13 @@ createBoard()
 
        
 
+       function clear(){
+        let ctx = document.getElementById('board').getContext('2d');
+        ctx.fillStyle = 'WHITE'
+        ctx.fillRect(590, 510, 25, 25);
+        
 
+       }
 
 //img = new Image();
 //img.src = "src/smileyface.ico"
