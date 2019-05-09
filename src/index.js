@@ -15,12 +15,54 @@
 //div.innerText = "test"
 
 function createBoard() {
-
+    
+    let img = new Image();
+    let imgLine = new Image();
+    let imgWeekOne = new Image();
+    let imgWeekTwo = new Image();
+    let imgWeekThree = new Image();
+    let codeChallenge = new Image();
+    imgLine.src = 'src/flatline.png'
+    imgWeekOne.src = 'src/week1.png'
+    imgWeekTwo.src = 'src/week2.png'
+    imgWeekThree.src = 'src/week3.png'
+    img.src = 'src/flatiron.png';
+    codeChallenge.src = 'src/code.png'
     let c = document.getElementById("board");
     c.addEventListener('click', draw)
     let ctx = c.getContext("2d");
     ctx.rect(20, 20, 600, 600);
     ctx.rect(95,95,450,450);
+    ctx.rect(110,110,425,425);
+    img.onload = function() {
+        
+    ctx.drawImage(img,110,110,425,425)
+    ctx.drawImage(imgLine,470,550,45,45)
+    ctx.drawImage(imgLine,560,130,45,45)
+    ctx.drawImage(imgLine,110,25,45,45)
+    ctx.drawImage(imgLine,40,450,45,45)
+    ctx.drawImage(imgWeekOne,110,540,70,50)
+    ctx.drawImage(imgWeekTwo,220,540,70,50)
+    ctx.drawImage(imgWeekThree,330,540,70,50)
+    
+    ctx.drawImage(imgWeekOne,550,460,70,50)
+    ctx.drawImage(imgWeekTwo,550,345,70,50)  
+    ctx.drawImage(imgWeekThree,550,235,70,50)  
+    
+    ctx.drawImage(imgWeekOne,20,125,70,50)  
+    ctx.drawImage(imgWeekTwo,20,235,70,50)
+    ctx.drawImage(imgWeekThree,20,345,70,50)
+     
+    ctx.drawImage(imgWeekThree,220,15,70,50)
+    ctx.drawImage(imgWeekTwo,330,15,70,50)
+    ctx.drawImage(imgWeekOne,440,15,70,50)  
+
+    ctx.drawImage(codeChallenge,550,15,60,50)  
+    ctx.drawImage(codeChallenge,20,15,60,50)  
+    ctx.drawImage(codeChallenge,20,545,60,50)  
+    ctx.drawImage(codeChallenge,555,545,60,50)  
+  }
+      
     ctx.rect(20,20,75,75);
     ctx.rect(20,95,75,112.5);
     ctx.rect(20,208,75,112.5);
@@ -46,7 +88,9 @@ function createBoard() {
     ctx.rect(433,20,112.5,75);
     ctx.rect(545,545,75,75);
     ctx.stroke();
-}
+
+
+  }
 
 createBoard()
 
@@ -75,7 +119,42 @@ createBoard()
             }
      }
 
+          // function drawTest() {
 
+          //   let ctx = document.getElementById('board').getContext('2d');
+          //   let img = new Image();
+          //   img.id = "player1"
+          //   img.src = 'src/smileyface.jpg';
+          //   img.onload = function() {
+          //       // ctx.drawImage(img, 100, 590, 25, 25); // home position
+          //      // ctx.drawImage(img,currentPlayer.position.x, currentPlayer.position.y, 25, 25 )
+          //       ctx.drawImage(img, 220,590, 25, 25); // second block at bottom
+          //      ctx.drawImage(img, 325,590, 25, 25); 
+          //      ctx.drawImage(img, 435,590, 25, 25);
+          //      ctx.drawImage(img,550,590,25,25 )
+    
+          //      ctx.drawImage(img,550,510,25,25)
+          //     ctx.drawImage(img,550,400,25,25)
+          //      ctx.drawImage(img,550,290,25,25)
+          //      ctx.drawImage(img,550,180,25,25)
+          //     ctx.drawImage(img,550,60,25,25)
+          //      ctx.drawImage(img,440,60,25,25)
+          //      ctx.drawImage(img,330,60,25,25)
+          //     ctx.drawImage(img,210,60,25,25)
+          //      ctx.drawImage(img,100,60,25,25)
+          //      ctx.drawImage(img,25,60,25,25)
+                
+          //      ctx.drawImage(img,25,180,25,25)  
+          //      ctx.drawImage(img,25,290,25,25) 
+          //      ctx.drawImage(img,25,290,25,25)  
+          //      ctx.drawImage(img,25,400,25,25) 
+          //      ctx.drawImage(img,25,510,25,25)
+          //      ctx.drawImage(img,25,590,25,25)
+    
+          //     //ctx.drawImage()  
+          //       }
+          //     }
+        
 
 function moveForward(currentPlayer)  {
     clearOldPosition(currentPlayer)

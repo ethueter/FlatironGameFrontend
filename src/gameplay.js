@@ -297,4 +297,5 @@ function displayScore () {
     
     let p2Score = document.querySelector('#player2-score')
     p2Score.innerText = player2.name + " " + player2.score
+
 }
