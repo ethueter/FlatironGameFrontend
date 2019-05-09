@@ -66,7 +66,7 @@ function getUserInfo() {
     icon2.id = 'icon-select2'
     icon2.innerHTML = `
         <option value="test6">android</option>
-        <option value="test7">houzz</option>
+        <option value="src/houzz.jpeg">houzz</option>
         <option value="test8">dropbox</option>
         <option value="test9">redhat</option>
         <option value="test10">xbox</option>
