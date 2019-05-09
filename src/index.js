@@ -9,12 +9,12 @@ function createBoard() {
     let imgWeekTwo = new Image();
     let imgWeekThree = new Image();
     let codeChallenge = new Image();
-    imgLine.src = 'src/flatline.png'
-    imgWeekOne.src = 'src/week1.png'
-    imgWeekTwo.src = 'src/week2.png'
-    imgWeekThree.src = 'src/week3.png'
-    img.src = 'src/flatiron.png';
-    codeChallenge.src = 'src/code.png'
+    imgLine.src = 'src/images/flatline.png'
+    imgWeekOne.src = 'src/images/week1.png'
+    imgWeekTwo.src = 'src/images/week2.png'
+    imgWeekThree.src = 'src/images/week3.png'
+    img.src = 'src/images/flatiron.png';
+    codeChallenge.src = 'src/images/code.png'
     let c = document.getElementById("board");
     c.addEventListener('click', draw)
     let ctx = c.getContext("2d");
