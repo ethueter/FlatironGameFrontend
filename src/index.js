@@ -69,10 +69,9 @@ createBoard()
          
     
       function draw() {
-
+        
         let ctx = document.getElementById('board').getContext('2d');
         let img = new Image();
-        img.id = "player1"
         img.src = currentPlayer.icon;
         img.onload = function() {
             // ctx.drawImage(img, 100, 590, 25, 25); // home position
@@ -143,7 +142,9 @@ createBoard()
 
 
 function moveForward(currentPlayer)  {
+    clearOldPosition(currentPlayer)
     if (currentPlayer == player1) {
+        
         player1.positionid = player1.positionid + 1
         player1.position = player1Positions[`block${player1.positionid}`]
        
@@ -153,21 +154,36 @@ function moveForward(currentPlayer)  {
     }
 
     draw(currentPlayer)
-
-    if (currentPlayer == player1) {
-        currentPlayer = player2
-    } else {
-        currentPlayer = player1
-    }
+    nextUp()
     
-    gamePlay(currentPlayer)
 }       
 
-function clear(){
+function clearOldPosition(currentPlayer){
         let ctx = document.getElementById('board').getContext('2d');
         ctx.fillStyle = 'WHITE'
-        ctx.fillRect(590, 510, 25, 25);
+        ctx.fillRect(currentPlayer.position.x, currentPlayer.position.y, 25, 25);
         
-
        }
+
+function nextUp() {
+    let main = document.querySelector('#action-section')
+    main.innerHTML = ''
+    let nextScreen = document.createElement('h3')
+    nextScreen.innerText = "Next Up! Are you Ready?"
+    let nxtBtn = document.createElement('button')
+    nxtBtn.innerText = "Hit Me!"
+    nxtBtn.addEventListener('click', handleNext)
+    main.appendChild(nextScreen)
+    main.appendChild(nxtBtn)
+}
+
+function handleNext() {
+    if (currentPlayer == player1) {
+        currentPlayer = player2
+        gamePlay(currentPlayer)
+    } else {
+        currentPlayer = player1
+        gamePlay(currentPlayer)
+    }
+}
 
