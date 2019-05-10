@@ -44,11 +44,11 @@ function getUserInfo() {
     icon.id = 'icon-select'
     icon.innerHTML = `
         
-        <option value="src/android.png">Amazon</option>
-        <option value="test2">ebay</option>
-        <option value="test3">PlayStation</option>
-        <option value="test4">Salesforce</option>
-        <option value="test5">yelp!</option>
+        <option value="src/images/amazon.png">Amazon</option>
+        <option value="src/images/ebay.jpeg">ebay</option>
+        <option value="src/images/playstation.png">PlayStation</option>
+        <option value="src/images/salesforce.png">Salesforce</option>
+        <option value="src/images/yelp.jpg">yelp!</option>
         `
     let formBreak = document.createElement('br')
 
@@ -66,11 +66,11 @@ function getUserInfo() {
     let icon2 = document.createElement('select')
     icon2.id = 'icon-select2'
     icon2.innerHTML = `
-        <option value="test6">android</option>
-        <option value="src/houzz.jpeg">houzz</option>
-        <option value="test8">dropbox</option>
-        <option value="test9">redhat</option>
-        <option value="test10">xbox</option>
+        <option value="src/images/android.png">android</option>
+        <option value="src/images/houzz.jpeg">houzz</option>
+        <option value="src/images/dropbox.png">dropbox</option>
+        <option value="src/images/redhat.png">redhat</option>
+        <option value="src/images/xbox.png">xbox</option>
         `
 
 
