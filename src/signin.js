@@ -24,10 +24,10 @@ function getUserInfo() {
     let heading = document.createElement('h2')
     heading.innerText = "Welcome to Flatiron the Game"
     let subheading = document.createElement('h4')
-    subheading.innerText = 'Add Skills To Your Resume'
+    subheading.innerText = 'Objective: Add Skills To Your Resume'
 
     let nameLabelBegin = document.createElement('h4')
-    nameLabelBegin.innerText = "Enter Your Name and Choose an Icon to Get Started"
+    nameLabelBegin.innerText = "1.) Enter Your Name\n2.) Choose the company you want to work for!"
 
     let player1Label = document.createElement('label')
     player1Label.innerText = 'Player 1'
@@ -143,14 +143,20 @@ function handleGameStart(e) {
 function setPlayer1(player1Data) {
     player1 = player1Data
     let p1Score = document.querySelector('#player1-score')
-    p1Score.innerText = player1.name + ": " + player1.score
+    p1Score.innerText = `${player1.name}: ${player1.score}`
+
+    let p1Resume = document.querySelector('#player1-resume')
+    p1Resume.innerText = `${player1.name}'s Resume`
 }
 
 function setPlayer2(player2Data) {
     player2 = player2Data
     
     let p2Score = document.querySelector('#player2-score')
-    p2Score.innerText = player2.name + ": " + player2.score
+    p2Score.innerText = `${player2.name}: ${player2.score}`
+
+    let p2Resume = document.querySelector('#player2-resume')
+    p2Resume.innerText = `${player2.name}'s Resume`
 }
 
 function gameRules() {
