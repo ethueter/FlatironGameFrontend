@@ -12,36 +12,38 @@
         <body>
             <div class="ui centered grid">
                 <div class="four column row">
-                    <div class="five wide column">
-                        <h1 id="player1-score">Player 1</h1>
+                    <div class="four wide column">
+                        <h1 id="player1-score" class="ui raised blue segment">Player 1</h1>
                     </div>
                     <div class="four wide column">
-                            <h1 id="player2-score">Player 2</h1>
+                            <h1 id="player2-score" class="ui raised blue segment">Player 2</h1>
                     </div>
                 </div>
             </div>
             <div class="ui centered grid">
                 <div class="two column row">
                     <div class="eight wide column">
-                        <canvas id="board" width="640" height="640" style="position: relative">
-                            <div id="overlay" class = "hsonuc">
-                            </div> 
-                        </canvas>    
+                        <div class="ui raised segment">
+                            <canvas id="board" width="640" height="640" style="position: relative">
+                                <div id="overlay" class = "hsonuc">
+                                </div> 
+                            </canvas>
+                        </div>    
                     </div>
                     <div class="four wide column">
-                        <div class="ui raised segment">
+                        <div class="ui raised blue segment">
                             <div classname="resume">
-                                    <h1 id="player1-resume">Player 1 Resume</h1>
+                                    <label class="ui red ribbon label" id="player1-resume">Player 1 Resume</label>
                                     <ul id="skill-list1">
                                         
                                     </ul>
-                                    <h1 id="player2-resume">Player 2 Resume</h1>
+                                    <label class="ui blue ribbon label" id="player2-resume">Player 2 Resume</label>
                                     <ul id="skill-list2">
                                     
                                     </ul>
                             </div>
                         </div>
-                            <div id="question-box" class="ui raised segment">
+                            <div id="question-box" class="ui raised blue segment">
                                 <div id="action-section">
 
                                 </div>
