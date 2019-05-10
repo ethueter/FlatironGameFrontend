@@ -105,10 +105,14 @@ createBoard()
             ctx.drawImage(img, player2.position.x, player2.position.y, 25, 25)
             }
      }
+     
+     
+     
+     
 
-          
-        
+    
 
+    
 function moveForward(currentPlayer)  {
     clearOldPosition(currentPlayer)
     if (currentPlayer == player1) {
