@@ -23,7 +23,7 @@ function createBoard() {
     ctx.rect(110,110,425,425);
     img.onload = function() {
         
-    ctx.drawImage(img,110,110,425,425)
+    ctx.drawImage(img,110,95,400,425)
     ctx.drawImage(imgLine,470,550,45,45)
     ctx.drawImage(imgLine,560,130,45,45)
     ctx.drawImage(imgLine,110,25,45,45)
