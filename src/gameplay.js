@@ -80,7 +80,7 @@ function gamePlay(currentPlayer) {
         break;
         case currentPosition == 27: chanceCard();
         break;
-        case currentPosition == 29: codeChallenge(mod4);
+        case currentPosition == 28: codeChallenge(mod4);
         break;
         default: document.write('Something is wrong!');
 
@@ -160,9 +160,9 @@ function handleAnswer (e) {
 
 function codeChallenge(mod) {
     alert('Code Challenge!!!')
-    let explanation = document.querySelector('#action-section')
-    explanation.innerHTML = ''
-    let newline = document.createElement('br')
+    // let explanation = document.querySelector('#action-section')
+    // explanation.innerHTML = ''
+    // let newline = document.createElement('br')
     let questionCard = document.getElementById("action-section")
     let questionSpace = document.createElement('div')
     questionSpace.className = "question-space"
@@ -219,17 +219,17 @@ function handleCC(e) {
     switch(true) {
         case currentPlayer.score < 60: displayScore(); codeChallenge(mod1);
         break;
-        case currentPlayer.score == 60: levelup("Ruby");
+        case currentPlayer.score == 60 || currentPlayer.score == 65: displayScore(); levelup("Ruby");
         break;
-        case currentPlayer.score > 60 && currentPlayer.score < 120: codeChallenge(mod2);
+        case currentPlayer.score > 65 && currentPlayer.score < 120: displayScore(); codeChallenge(mod2);
         break;
-        case currentPlayer.score == 120: levelup(rails);
+        case currentPlayer.score == 120 || currentPlayer.score == 125: displayScore(); levelup("Rails");
         break;
-        case currentPlayer.score > 120 && currentPlayer.score < 180: codeChallenge(mod3);
+        case currentPlayer.score > 125 && currentPlayer.score < 180: displayScore(); codeChallenge(mod3);
         break;
-        case currentPlayer.score == 180: levelup(javascript);
+        case currentPlayer.score == 180 || currentPlayer.score == 185: displayScore(); levelup("Javascript");
         break;
-        case currentPlayer.score > 180 && currentPlayer.score < 240: codeChallenge(mod4);
+        case currentPlayer.score > 185 && currentPlayer.score < 240: displayScore(); codeChallenge(mod4);
         break;
         case currentPlayer.score == 240: winner();
         default: document.write("NO GOOD")
@@ -242,12 +242,21 @@ function winner() {
 
 function levelup(language) {
     console.log("current player", currentPlayer.score)
-    let resume = document.querySelector('#player-resume')
+    if ( currentPlayer == player1) {
+    let resume = document.querySelector('#player1-resume')
     resume.innerText = `${currentPlayer.name}'s Resume`
-    let skills = document.querySelector('#skill-list')
+    let skills = document.querySelector('#skill-list1')
     let newSkill = document.createElement('li')
     newSkill.innerText = `${language}`
     skills.appendChild(newSkill)
+    } else {
+        let resume = document.querySelector('#player2-resume')
+        resume.innerText = `${currentPlayer.name}'s Resume`
+        let skills = document.querySelector('#skill-list2')
+        let newSkill = document.createElement('li')
+        newSkill.innerText = `${language}`
+        skills.appendChild(newSkill)
+    }
     moveForward(currentPlayer)
 }
 
@@ -255,6 +264,12 @@ function chanceCard() {
     let chanceNum = Math.floor(Math.random() * 7)
     console.log('chance-card', chanceNum)
     switch(true) {
+        case chanceNum == 0: {
+            currentPlayer.score = currentPlayer.score - 5
+            displayScore()
+            alert("You get the flu and fall behind. Lose 5pts")
+            nextUp()
+        };
         case chanceNum == 1: {
             currentPlayer.score = currentPlayer.score + 10
             displayScore()
