@@ -22,7 +22,7 @@ function getUserInfo() {
     signInForm.method = "POST"
 
     let heading = document.createElement('h2')
-    heading.innerText = "Welcome to Flatiron the Game"
+    heading.innerText = "Welcome to \nFlatiron the Game"
     let subheading = document.createElement('h4')
     subheading.innerText = 'Objective: Add Skills To Your Resume'
 
