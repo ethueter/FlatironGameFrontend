@@ -26,7 +26,7 @@ function player1Start() {
     let main = document.querySelector('#action-section')
     main.innerHTML = ''
     let nextScreen = document.createElement('h3')
-    nextScreen.innerText = `${currentPlayer.name} Ready?`
+    nextScreen.innerText = `Ready ${currentPlayer.name}?`
     let nxtBtn = document.createElement('button')
     nxtBtn.innerText = "Hit Me!"
     nxtBtn.addEventListener('click', ()=> gamePlay(currentPlayer))
@@ -160,9 +160,6 @@ function handleAnswer (e) {
 
 function codeChallenge(mod) {
     alert('Code Challenge!!!')
-    // let explanation = document.querySelector('#action-section')
-    // explanation.innerHTML = ''
-    // let newline = document.createElement('br')
     let questionCard = document.getElementById("action-section")
     let questionSpace = document.createElement('div')
     questionSpace.className = "question-space"
