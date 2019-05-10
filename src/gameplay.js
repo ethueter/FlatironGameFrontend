@@ -107,12 +107,14 @@ function askQuestion(mod) {
     p.className = "answers"
     let p2 = document.createElement('p')
     p2.className = "answer-button"
+    let questionBreak = document.createElement('br')
 
     questionCard.appendChild(questionSpace)
+    questionCard.appendChild(questionBreak)
     questionCard.appendChild(answerSpace)
 
     let question = mod[Math.floor(Math.random() * mod.length)]
-    questionSpace.innerText = `Question: ${question.content}`
+    questionSpace.innerHTML = `<strong>${question.content}</strong>`
     let answers = question.answers
     for (let key in answers) {
         if (answers.hasOwnProperty(key)) {
